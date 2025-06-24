@@ -1,4 +1,4 @@
-# ToDoListApp 📝
+# ToDoListApp
 
 A simple JavaFX-based To-Do List desktop application that allows users to:
 
