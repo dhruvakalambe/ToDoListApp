@@ -15,7 +15,7 @@ public class TaskController {
     private TextField taskInput;
 
     @FXML
-    private DatePicker dueDatePicker;
+    private DatePicker datePicker;
 
     @FXML
     private ComboBox<String> priorityComboBox;
@@ -30,14 +30,15 @@ public class TaskController {
         tasks = FXCollections.observableArrayList(FileHandler.loadTasks());
         taskList.setItems(tasks);
 
-        // Set default value and items for priority combo box
-        priorityComboBox.setValue("Medium"); // Default
+        // Set default priority
+        priorityComboBox.setItems(FXCollections.observableArrayList("High", "Medium", "Low"));
+        priorityComboBox.setValue("Medium");
     }
 
     @FXML
     private void handleAddTask() {
         String description = taskInput.getText().trim();
-        LocalDate dueDate = dueDatePicker.getValue();
+        LocalDate dueDate = datePicker.getValue();             // ✅ Fixed here
         String priority = priorityComboBox.getValue();
 
         if (!description.isEmpty() && dueDate != null && priority != null) {
@@ -45,10 +46,10 @@ public class TaskController {
             tasks.add(newTask);
 
             taskInput.clear();
-            dueDatePicker.setValue(null);
+            datePicker.setValue(null);                         // ✅ Fixed here
             priorityComboBox.setValue("Medium");
 
-            FileHandler.saveTasks(tasks); // Save after adding
+            FileHandler.saveTasks(tasks);
         } else {
             showAlert("Please fill all fields: Task, Date, and Priority.");
         }

@@ -15,10 +15,6 @@
         <Insets top="10" right="10" bottom="10" left="10"/>
     </padding>
 
-    <padding>
-        <Insets top="10" right="10" bottom="10" left="10"/>
-    </padding>
-
     <Label text="To-Do List" style="-fx-font-size: 24px;" />
 
     <HBox spacing="10">
@@ -26,8 +22,16 @@
     </HBox>
 
     <HBox spacing="10">
-        <DatePicker fx:id="dueDatePicker" />
-        <ComboBox fx:id="priorityComboBox">
+        <DatePicker fx:id="datePicker"
+                    promptText="dd-MM-yyyy"
+                    prefHeight="40"
+                    prefWidth="200"
+                    HBox.hgrow="ALWAYS" />
+
+        <ComboBox fx:id="priorityComboBox"
+                  prefHeight="40"
+                  prefWidth="200"
+                  HBox.hgrow="ALWAYS">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="High"/>
@@ -38,11 +42,24 @@
         </ComboBox>
     </HBox>
 
-    <Button text="Add Task" onAction="#handleAddTask" />
+    <HBox alignment="CENTER">
+        <Button text="Add Task" onAction="#handleAddTask" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+    </HBox>
     <ListView fx:id="taskList" VBox.vgrow="ALWAYS" />
 
     <HBox spacing="10">
-        <Button text="Mark as Done" onAction="#handleMarkAsDone" />
-        <Button text="Delete Task" onAction="#handleDeleteTask" />
+        <Button text="Mark as Done"
+                onAction="#handleMarkAsDone"
+                maxWidth="Infinity"
+                maxHeight="Infinity"
+                HBox.hgrow="ALWAYS"
+                alignment="CENTER" />
+
+        <Button text="Delete Task"
+                onAction="#handleDeleteTask"
+                maxWidth="Infinity"
+                maxHeight="Infinity"
+                HBox.hgrow="ALWAYS"
+                alignment="CENTER" />
     </HBox>
 </VBox>
