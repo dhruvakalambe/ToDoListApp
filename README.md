@@ -18,7 +18,7 @@ A simple JavaFX-based To-Do List desktop application that allows users to:
 - IntelliJ IDEA
 - Git + GitHub for version control
 
-## Future Improvements
+## Future Improvements(maybe)
 - Add persistent storage using SQLite or JSON
 - Task filtering by date/priority
 - Better animations and transitions
