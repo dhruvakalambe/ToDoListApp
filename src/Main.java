@@ -1,3 +1,4 @@
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,11 +12,13 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("view/task_view.fxml"));
 
         primaryStage.setTitle("To-Do List App");
-        primaryStage.getIcons().add(
-                new Image(getClass().getResourceAsStream("/icon.ico"))
-        );
 
         primaryStage.setScene(new Scene(root, 400, 600));
+
+        primaryStage.getIcons().add(
+                new Image(getClass().getResourceAsStream("/Icon.png"))
+        );
+
         primaryStage.show();
     }
 
